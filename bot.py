@@ -59,27 +59,8 @@ async def rolar(ctx, dice):
 async def escolha(ctx, *choices: str):
     await ctx.send(random.choice(choices) + '... E na próxima escolha você mesmo ' + str(ctx.message.author.nick))
 
-@bot.command()
-async def entrou(ctx, member: discord.Member):
-    await ctx.send('{0.name} chegou em {0.joined_at}, yaaaay...'.format(member))
-
-@bot.command()
+@bot.command(description='Abre uma seleção de itens do comerciante local')
 async def loja(ctx):
     await ctx.send(tabulate(libLoja.samplingLoja(), headers=['Item','Quantidade','Preço'], tablefmt='plain', stralign='right'))
-
-@bot.command()
-async def teste(ctx):
-    await ctx.send(description)
-
-@bot.command()
-async def ping(ctx):
-    latencia = bot.latency
-    await ctx.send(str(round(latencia)) + ' ms')
-
-@bot.group()
-async def legal(ctx):
-    if ctx.invoked_subcommand is None:
-        await ctx.send('Não, {0.subcommand_passed} não é legal'.format(ctx))
-
 
 bot.run('NzExMzE2MzkyMDE1NTYwNzYz.XsBPLQ.DOChTB_Mfn48ACSlB8FsnTEntb0')
