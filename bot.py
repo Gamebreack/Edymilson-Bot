@@ -5,10 +5,12 @@ import libLoja
 from tabulate import tabulate
 tabulate.PRESERVE_WHITESPACE = True
 
+intents = discord.Intents.default()
+intents.message_content = True
 
 description = '''Eu sou o Edymilson, o bot das crônicas de Módeg.
 Eu posso ser um pouco sarcástico, mas sempre ajudarei quando precisar.'''
-bot = commands.Bot(command_prefix='ed/', description=description)
+bot = commands.Bot(command_prefix='ed/', intents=intents, description=description)
 textoDeAjuda = '''
 
 Eu sou o Edymilson, o bot das crônicas de Módeg.
